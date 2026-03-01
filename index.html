@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shivkumar Konnuri | QA Engineer & DevOps Learner</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+    scroll-behavior:smooth;
+}
+
+body{
+    background: linear-gradient(-45deg,#0f2027,#203a43,#2c5364,#1e3c72);
+    background-size:400% 400%;
+    animation:gradientBG 12s ease infinite;
+    color:white;
+}
+
+@keyframes gradientBG{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+}
+
+section{
+    min-height:100vh;
+    padding:80px 10%;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+
+.glass{
+    background:rgba(255,255,255,0.1);
+    backdrop-filter:blur(15px);
+    border-radius:20px;
+    padding:40px;
+    border:1px solid rgba(255,255,255,0.2);
+    box-shadow:0 8px 32px rgba(0,0,0,0.3);
+    transition:0.4s ease;
+}
+
+.glass:hover{
+    transform:translateY(-10px) scale(1.02);
+    box-shadow:0 15px 40px rgba(0,0,0,0.6);
+}
+
+h1{
+    font-size:48px;
+    font-weight:700;
+    margin-bottom:20px;
+}
+
+h2{
+    font-size:32px;
+    margin-bottom:20px;
+    font-weight:600;
+}
+
+p{
+    line-height:1.8;
+    opacity:0.9;
+}
+
+nav{
+    position:fixed;
+    top:0;
+    width:100%;
+    padding:20px 10%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    backdrop-filter:blur(10px);
+    background:rgba(0,0,0,0.3);
+    z-index:1000;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin-left:20px;
+    transition:0.3s;
+}
+
+nav a:hover{
+    color:#00f5ff;
+    transform:scale(1.1);
+}
+
+.hero{
+    text-align:center;
+}
+
+.hero span{
+    color:#00f5ff;
+}
+
+.btn{
+    display:inline-block;
+    margin-top:25px;
+    padding:12px 25px;
+    border-radius:30px;
+    border:1px solid #00f5ff;
+    color:#00f5ff;
+    text-decoration:none;
+    transition:0.3s;
+}
+
+.btn:hover{
+    background:#00f5ff;
+    color:black;
+    box-shadow:0 0 20px #00f5ff;
+}
+
+.skills-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:20px;
+}
+
+.skill-card{
+    padding:20px;
+    border-radius:15px;
+    background:rgba(255,255,255,0.08);
+    text-align:center;
+    transition:0.3s;
+}
+
+.skill-card:hover{
+    transform:translateY(-8px);
+    background:rgba(255,255,255,0.2);
+}
+
+footer{
+    text-align:center;
+    padding:20px;
+    opacity:0.6;
+}
+
+.fade-in{
+    opacity:0;
+    transform:translateY(20px);
+    transition:1s;
+}
+
+.fade-in.visible{
+    opacity:1;
+    transform:translateY(0);
+}
+
+@media(max-width:768px){
+    h1{font-size:34px;}
+    h2{font-size:24px;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+    <div><strong>Shivkumar</strong></div>
+    <div>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+    </div>
+</nav>
+
+<section class="hero">
+    <div class="glass fade-in">
+        <h1>Hi, I'm <span>Shivkumar Konnuri</span></h1>
+        <p>Senior QA Engineer | Automation Specialist | DevOps Learner</p>
+        <a href="#contact" class="btn">Connect With Me</a>
+    </div>
+</section>
+
+<section id="about">
+    <div class="glass fade-in">
+        <h2>About Me</h2>
+        <p>
+            I am a QA Engineer with 9+ years of experience in manual and automation testing,
+            specializing in Selenium WebDriver, TestNG, Java, and banking domain applications.
+            I have led teams, handled SIT & UAT cycles, worked closely with developers,
+            and ensured high-quality product releases.
+            <br><br>
+            Currently expanding into DevOps, Docker, Linux, and AWS as part of my 90DaysOfDevOps journey.
+        </p>
+    </div>
+</section>
+
+<section id="skills">
+    <div class="glass fade-in">
+        <h2>Technical Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-card">Selenium WebDriver</div>
+            <div class="skill-card">TestNG</div>
+            <div class="skill-card">Core Java</div>
+            <div class="skill-card">Manual Testing</div>
+            <div class="skill-card">SQL & Database Testing</div>
+            <div class="skill-card">Docker</div>
+            <div class="skill-card">Linux Administration</div>
+            <div class="skill-card">AWS EC2</div>
+            <div class="skill-card">JIRA</div>
+            <div class="skill-card">CI/CD Concepts</div>
+        </div>
+    </div>
+</section>
+
+<section id="projects">
+    <div class="glass fade-in">
+        <h2>Projects</h2>
+        <p>
+            🔹 Loyalty Management System – Reward accrual & redemption platform  
+            <br><br>
+            🔹 Enterprise Statements Solution – Credit card statement generation system  
+            <br><br>
+            🔹 Docker & DevOps Practice Projects – Custom networks, volumes, container lifecycle, Nginx deployment  
+            <br><br>
+            🔹 Selenium Automation Framework – Data Driven + POM + Hybrid Framework
+        </p>
+    </div>
+</section>
+
+<section id="contact">
+    <div class="glass fade-in">
+        <h2>Contact</h2>
+        <p>
+            📍 India  
+            <br>
+            💼 Open to QA Automation & DevOps Opportunities  
+            <br><br>
+            Let's build reliable, scalable systems together.
+        </p>
+    </div>
+</section>
+
+<footer>
+    © 2026 Shivkumar Konnuri | Designed with Modern Glass UI
+</footer>
+
+<script>
+const faders = document.querySelectorAll('.fade-in');
+
+const appearOptions = {
+    threshold:0.3
+};
+
+const appearOnScroll = new IntersectionObserver(function(entries, observer){
+    entries.forEach(entry=>{
+        if(!entry.isIntersecting){
+            return;
+        } else {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+        }
+    });
+}, appearOptions);
+
+faders.forEach(fader=>{
+    appearOnScroll.observe(fader);
+});
+</script>
+
+</body>
+</html>
