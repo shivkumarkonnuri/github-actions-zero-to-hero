@@ -1,0 +1,11 @@
+name: Scheduled Workflow
+on:
+  schedule:
+    - cron: "0 0 * * *"
+jobs:
+  scheduled-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Scheduled workflow executed
+        run: echo "Scheduled workflow executed"
+
