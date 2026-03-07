@@ -1,0 +1,13 @@
+name: Manual Workflow
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: "Add the environment"
+        required: true
+jobs:
+  manual-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Display the environment
+        run: echo "Environment selected: ${{github.event.inputs.environment}}"
