@@ -10,6 +10,11 @@ jobs:
       matrix:
         python-version: ["3.10", "3.11", "3.12", "3.13"]
         os: [ubuntu-latest,windows-latest]
+
+        exclude: 
+          - python-version: "3.10"
+            os: windows
+
     runs-on: ${{ matrix.os }}
 
     steps:
