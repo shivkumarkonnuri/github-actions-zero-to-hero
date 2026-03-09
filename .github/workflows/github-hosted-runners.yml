@@ -1,0 +1,46 @@
+name: GitHub Hosted Runners Practice
+on:
+  workflow_dispatch:
+
+jobs:
+  ubuntu:
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Print OS name
+        run: uname -a
+
+      - name: Print runners hostname
+        run: hostname
+
+      - name: Print current user
+        run: whoami
+
+  windows:
+    runs-on: windows-latest
+
+    steps:
+
+      - name: Print OS name
+        run: ver
+
+      - name: Print runner hostname
+        run: hostname
+      
+      - name: Print current user
+        run: whoami
+
+  macos:
+    runs-on: macos-latest
+
+    steps:
+
+      - name: Print OS name
+        run: sw_vers -productName
+
+      - name: Print runner hostname
+        run: hostname
+
+      - name: Print current user
+        run: whoami
