@@ -1,0 +1,24 @@
+name: Explore Pre-installed Softwares
+on:
+  workflow_dispatch:
+
+jobs:
+  check_preinstall:
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Check Docker version
+        run: docker --version
+
+      - name: Check python version
+        run: python --version
+
+      - name: Check Node version
+        run: node --version
+
+      - name: Check git version
+        run: git --version
+
+      - name: List all installed softwares
+        run: dpkg -l
