@@ -23,7 +23,7 @@ jobs:
     steps:
 
       - name: Print OS name
-        run: ver
+        run: systeminfo | findstr /B /C:"OS Name"
 
       - name: Print runner hostname
         run: hostname
