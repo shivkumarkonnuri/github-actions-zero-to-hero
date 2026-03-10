@@ -35,3 +35,4 @@ jobs:
       - name: Read downloaded artifacts
         run: |
           ls -R
+          cat test-report.txt
