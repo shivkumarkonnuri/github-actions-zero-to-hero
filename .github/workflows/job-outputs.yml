@@ -7,7 +7,7 @@ jobs:
   pass_output_from:
     runs-on: ubuntu-latest
     outputs:
-      today: steps.date_step.outputs.today
+      today: ${{ steps.date_step.outputs.today }}
 
     steps:
       - name: Generate today's date
