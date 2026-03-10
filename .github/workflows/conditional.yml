@@ -1,0 +1,34 @@
+name: Conditional Workflow Practice
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  condition:
+
+    if: ${{ github.event_name == 'push' }}
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Run a Conditional Workflow
+        run: echo "Running conditional workflow"
+
+      - name: Run only on main
+        if: ${{ github.ref == 'refs/heads/main' }}
+        run: echo "This runs only in main branch"
+
+      - name: Fail but continue
+        continue-on-error: true
+        run: exit 1
+
+      - name: Step runs after continue-on-error
+        run: echo "Workflow continues even though previous step failed"
+
+      - name: Intentional failure step
+        run: exit 1
+
+      - name: Run when previous step fails
+        if: ${{ failure() }}
+        run: echo "Previous step failed"  
