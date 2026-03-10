@@ -22,7 +22,7 @@ jobs:
 
   deploy:
     needs: test
-    runs-on: Deploy the app
+    runs-on: ubuntu-latest
 
     steps:
 
