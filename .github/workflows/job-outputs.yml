@@ -1,0 +1,26 @@
+name: Pass Job output to another job
+
+on:
+  workflow_dispatch:
+
+jobs:
+  pass_output_from:
+    runs-on: ubuntu-latest
+    outputs:
+      today: steps.date_step.outputs.today
+
+    steps:
+      - name: Generate today's date
+        id: date_step
+        run: |
+          today=$(date)
+          echo "today=$today" >> $GITHUB_OUTPUT
+  read_output:
+    needs: pass_output_from
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Reads output from previous job
+        run: |
+          echo ${{ needs.pass_output_from.outputs.today }}
