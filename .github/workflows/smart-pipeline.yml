@@ -1,0 +1,41 @@
+name: Smart Pipeline
+
+on: 
+  push:
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    
+    steps:
+
+      - name: Lint Checks
+        run: echo "Running lint checks"
+
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Perform Tests
+        run: echo "Running tests"
+
+  summary:
+    needs: [lint, test]
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Print Summary
+        run: echo "Jobs Completed"
+
+      - name: Check if Main branch
+        if: ${{ github.ref == 'refs/heads/main' }}
+        run: echo "Push to main branch"
+
+      - name: Check if feature branch
+        if: ${{ github.ref != 'refs/heads/main' }}
+        run: echo "Push to feature branch"
+
+      - name: Print commit message
+        run: echo "commit message: ${{ github.event.head_commit.message }}"
