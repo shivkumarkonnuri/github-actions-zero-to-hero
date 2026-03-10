@@ -1,0 +1,22 @@
+name: Upload Artifacts
+
+on:
+  workflow_dispatch:
+
+jobs: 
+  upload:
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Create a dummy report
+        run: |
+            mkdir reports
+            echo "Test execution completed successfully" > reports/test-report.txt
+            echo "Automation Test Report - Build Successful" >> reports/test-report.txt
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: Test Report
+          path: reports/test-report.txt
