@@ -8,9 +8,9 @@ env:
 jobs:
 
   env_var:
+  runs-on: ubuntu-latest
   env:
     ENVIRONMENT: staging
-  runs-on: ubuntu-latest
 
   steps:
     - name: Print all environment variables
