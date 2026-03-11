@@ -1,10 +1,10 @@
-name: Cache Restore Observation
+name: Cache Experiment
 
 on:
   workflow_dispatch:
 
 jobs:
-  cache-demo:
+  cache-test:
     runs-on: ubuntu-latest
 
     steps:
@@ -13,24 +13,17 @@ jobs:
         id: cache-step
         uses: actions/cache@v4
         with:
-          path: ~/cache-demo
+          path: ~/demo-cache
           key: demo-cache
 
-      - name: Check filesystem after cache restore
-        run: |
-          echo "Checking if cache-demo directory exists after cache restore"
-          ls -la ~ || true
+      - name: Show cache status
+        run: echo "Cache hit? -> ${{ steps.cache-step.outputs.cache-hit }}"
 
       - name: Create directory
         run: |
-          echo "Creating directory cache-demo"
-          mkdir ~/cache-demo
-          echo "Hello from cache" > ~/cache-demo/file.txt
-          ls -R ~/cache-demo
+          echo "Attempting to create directory"
+          mkdir ~/demo-cache
+          echo "file created" > ~/demo-cache/file.txt
 
-      - name: Delete directory before job ends
-        run: |
-          echo "Deleting directory"
-          rm -rf ~/cache-demo
-          echo "Directory deleted"
-          ls -la ~ || true
+      - name: Show directory contents
+        run: ls -R ~/demo-cache
