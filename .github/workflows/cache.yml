@@ -1,0 +1,19 @@
+name: Caching Workflow
+
+on:
+  workflow_dispatch:
+
+jobs:
+  cache:
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Restore cache
+        uses: actions/cache@v4
+        with:
+          path: /var/cache/apt
+          key: ubuntu-apt-cache
+
+      - name: Install dependencies
+        run: sudo apt-get update && sudo apt install -y jq
