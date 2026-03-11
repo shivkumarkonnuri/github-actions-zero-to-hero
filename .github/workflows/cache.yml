@@ -12,8 +12,11 @@ jobs:
       - name: Restore cache
         uses: actions/cache@v4
         with:
-          path: /var/cache/apt
-          key: ubuntu-apt-cache
+          path: ~/.cache/demo
+          key: demo-cache
 
-      - name: Install dependencies
-        run: sudo apt-get update && sudo apt install -y jq
+      - name: Create dependency file
+        run: |
+          mkdir -p ~/.cache/demo
+          echo "Dependency installed" > ~/.cache/demo/dependency.txt
+          ls -R ~/.cache/demo
