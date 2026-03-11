@@ -1,22 +1,36 @@
-name: Caching Workflow
+name: Cache Restore Observation
 
 on:
   workflow_dispatch:
 
 jobs:
-  cache:
+  cache-demo:
     runs-on: ubuntu-latest
 
     steps:
 
       - name: Restore cache
+        id: cache-step
         uses: actions/cache@v4
         with:
-          path: ~/.cache/demo
+          path: ~/cache-demo
           key: demo-cache
 
-      - name: Create dependency file
+      - name: Check filesystem after cache restore
         run: |
-          mkdir -p ~/.cache/demo
-          echo "Dependency installed" > ~/.cache/demo/dependency.txt
-          ls -R ~/.cache/demo
+          echo "Checking if cache-demo directory exists after cache restore"
+          ls -la ~ || true
+
+      - name: Create directory
+        run: |
+          echo "Creating directory cache-demo"
+          mkdir ~/cache-demo
+          echo "Hello from cache" > ~/cache-demo/file.txt
+          ls -R ~/cache-demo
+
+      - name: Delete directory before job ends
+        run: |
+          echo "Deleting directory"
+          rm -rf ~/cache-demo
+          echo "Directory deleted"
+          ls -la ~ || true
