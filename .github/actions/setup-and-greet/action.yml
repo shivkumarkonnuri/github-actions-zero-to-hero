@@ -3,7 +3,7 @@ name: Composit Action Workflow
 inputs:
   name:
     description: Name of the person
-    required:true
+    required: true
         
   language:
     description: Greeting Language
