@@ -12,3 +12,11 @@ jobs:
       environment: dev
     secrets: inherit
 
+  print_version:
+    needs: call_workflow
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Print Build version
+        run: echo "Build version = ${{ needs.call_workflow.outputs.build_version }}"
