@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - test-pr-trigger
 
 jobs:
   build:
@@ -34,6 +35,7 @@ jobs:
           docker tag ${{ vars.DOCKERHUB_USERNAME }}/myapp:${{ github.sha }} ${{ vars.DOCKERHUB_USERNAME }}/myapp:sha-${{ env.SHORT_SHA }}
 
       - name: Docker Push
+        if: github.ref == 'refs/heads/main'
         run: |
           docker push ${{ vars.DOCKERHUB_USERNAME }}/myapp:latest
           docker push ${{ vars.DOCKERHUB_USERNAME }}/myapp:sha-${{ env.SHORT_SHA }}
