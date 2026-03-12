@@ -1,0 +1,15 @@
+name: Greetings Workflow
+
+on:
+  workflow_dispatch:
+
+jobs:
+  greetings:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Run Greeting Action
+        uses: ./.github/actions/setup-and-greet
+        with:
+          name: Shiv
+          language: HI
