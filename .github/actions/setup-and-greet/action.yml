@@ -1,0 +1,41 @@
+name: Composit Action Workflow
+
+inputs:
+  name:
+    description: Name of the person
+    required:true
+        
+  language:
+    description: Greeting Language
+    required: false
+    default: EN
+
+outputs:
+  greeted:
+    description: Greetings
+    value: ${{ steps.greetings.outputs.greeted }}
+
+runs:
+  using: composite
+  steps:
+
+      - name: Print greeting in the specified language
+        shell: bash
+        run: |
+          if [ ${{ inputs.language }} = "HI" ]; then
+            echo "Namaste!! Kaise Ho ${{ inputs.name }}"
+          else 
+            echo "Hello ${{ inputs.name }}, How are you"
+          fi
+
+      - name: Print Current Date and Runner OS
+        shell: bash
+        run: |
+          echo "Current Date - $(date)"
+          echo "Runner OS - $(uname)"
+
+      - name: Greeted to an employee
+        id: greetings
+        shell: bash
+        run: |
+          echo "greeted=true" >> $GITHUB_OUTPUT
