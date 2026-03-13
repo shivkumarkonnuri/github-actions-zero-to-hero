@@ -1,0 +1,19 @@
+name: Smart Triggers with Paths-Ignore
+
+on: 
+  push:
+    branches:
+      - main
+      - feature/*
+    paths-ignore:
+      - '*.md'
+      - 'docs/**'
+
+jobs:
+  paths_ignore:
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Paths Ignore Workflow:
+        run: echo "No *.md file changes and/or no changes in docs directory pushed to main / feature/* branch"
