@@ -55,7 +55,7 @@ jobs:
         run: |
           body="$PR_BODY"
               
-          if [-z "$body" ]; then
+          if [ -z "$body" ]; then
             echo "WARNING - PR description is empty"
           else
             echo "PR description exists"
