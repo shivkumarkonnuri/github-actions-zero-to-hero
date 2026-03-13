@@ -1,0 +1,63 @@
+name: Validate Pull Request
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  file-size-check:
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Fails if any file in PR is greater than 1 MB
+        run: |
+          files=$(git diff --name-only origin/${{ github.base_ref }})
+
+          for file in $files
+          do
+            size=$(wc -c < "$file")
+
+            if [ $size -gt 1048576 ]; then
+              echo "File is larger than 1MB"
+              exit 1
+            fi
+          done
+            
+  branch-name-check:
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Check Branch naming convention
+        run: |
+          echo "Branch name - ${{ github.head_ref }}"
+
+          if [[ "${{ github.head_ref }}" =~ ^(feature|fix|docs)/ ]]; then
+            echo "Branch name follows naming convention"
+          else
+            echo "Branch name does not follow naming convention"
+            exit 1
+          fi
+
+  pr-body-check:
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Check PR description
+        env:
+          PR_BODY: ${{ github.event.pull_request.body }}
+        run: |
+          body="$PR_BODY"
+              
+          if [-z "$body" ]; then
+            echo "WARNING - PR description is empty"
+          else
+            echo "PR description exists"
+          fi
+          
