@@ -15,5 +15,5 @@ jobs:
 
     steps:
 
-      - name: Paths Ignore Workflow:
+      - name: Paths Ignore Workflow
         run: echo "No *.md file changes and/or no changes in docs directory pushed to main / feature/* branch"
